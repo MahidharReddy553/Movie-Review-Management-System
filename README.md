@@ -1,1 +1,1 @@
-# Movie-Review-Mangement-System
+# Movie-Review-Management-System
