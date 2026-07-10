@@ -20,6 +20,7 @@ def write_row(filename, data):
     with open(filename, 'a', newline='') as file:
         writer = csv.DictWriter(file, fieldnames = get_headers(filename))
         writer.writerow(data)
+        return "Row written successfully."
 
 def write_rows(filename, data):
     headers = get_headers(filename)
@@ -27,6 +28,7 @@ def write_rows(filename, data):
         writer = csv.DictWriter(file, fieldnames = headers)
         writer.writeheader()
         writer.writerows(data)
+        return "Rows written successfully."
 
 if __name__ == '__main__':
     path = r"D:\MRS_Project\MRS_no_db\data\users.csv"
