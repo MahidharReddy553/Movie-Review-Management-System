@@ -28,10 +28,10 @@ def write_rows(filename, data):
         writer.writeheader()
         writer.writerows(data)
 
-
-path = r"D:\MRS_Project\MRS_no_db\data\users.csv"
-user = {'id' : generate_id(path), 'username' : 'mdr', 'password':'mdr', 'email':'mdr@mailme.com'}
-users = read_csv(path)
-users.append(user)
-print(users)
-write_rows(path, users)
+if __name__ == '__main__':
+    path = r"D:\MRS_Project\MRS_no_db\data\users.csv"
+    user = {'id' : generate_id(path), 'username' : 'mdr', 'password':'mdr', 'email':'mdr@mailme.com'}
+    users = read_csv(path)
+    users.append(user)
+    print(users)
+    write_rows(path, users)
