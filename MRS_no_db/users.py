@@ -44,7 +44,7 @@ def login(credential, password):
 
     for user in users:
         if (user['username'] == credential or user['email'] == credential) and user['password'] == password:
-            return "Login successful."
+            return "Login successful.", user
     
     return "Invalid credentials."
 
