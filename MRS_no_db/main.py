@@ -1,63 +1,73 @@
+from utils import *
 from users import *
+from movies import *
+from reviews import *
 
+# User Dashboard
 def dashboard(user):
     while True:
-        print('Select a choice')
-        print('0. Logout')
-        print('1. Add a movie')
-        print('2. List all movies')
-        print('3. Add a review')
-        print('4. Edit a review')
-        print('5. Delete a review')
+        print("Select a choice(0-5):")
+        print("0. Logout\n1. Add a movie\n2. List all movies\n3. Add a review\n4. Edit a review\n5. Delete a review")
 
-        ch = input('Enter your choice (0 - 5) : ').strip()
-        if ch == '0':
-            print('You have logged out successfully...')
+        c = input("Enter the choice: ")
+        
+        if c == '0':
+            print("You have logged out successfully...")
             exit()
 
-        if ch == '1':
+        elif c == '1':
+            movie_title = input("Enter the movie title: ")
+            movie_genre = input("Enter the movie genre: ")
+            movie_release_year = input("Enter the movie's release year: ")
+
+            add_movie(movie_title, movie_genre, movie_release_year)
+            print('Movie has been added successfully..')
+
+        elif c == '2':
+            print("--------------- LIST OF MOVIES ---------------")
+            view_all_movies()
+
+        elif c == '3':
             pass
 
-        elif ch == '2':
+        elif c == '4':
             pass
 
-        elif ch == '3':
-            pass
-
-        elif ch == '4':
-            pass
-
-        elif ch == '5':
+        elif c == '5':
             pass
 
         else:
-            print('Invalid Choice. Please enter between (0 - 5)')
-        pass
+            print("Invalid Choice. Please enter your choice between 0-5")
 
 
 while True:
-    print('0. exit')
-    print('1. Register')
-    print('2. Login')
-    c = input('Enter your choice (0/1/2): ').strip()
+    print("----------- WELCOME TO MOVIE REVIEW SYSTEM -----------")
+    print("0. Exit\n1. Register\n2. Login")
 
-    if c == '0':
-        print("Thanks for your interest in movies. Byee!!")
+    ch = input("Please enter a choice (0/1/2): ")
+
+    if ch == '0':
         break
 
-    elif c == '1':
-        username = input("Enter the uesrname : ")
-        password = input("Enter your password : ")
-        email = input("Enter your email : ")
-        print(register(username, password, email))
+    elif ch == '1':
+        username = input("Enter the username: ")
+        password = input("Enter the password: ")
+        email = input("Enter the email: ")
 
-    elif c == '2':
-        credential = input("Enter your username or email : ")
-        l_password = input("Enter your password : ")
-        output = login(credential, l_password)
+        register_user = register(username, password, email)
+        print("User has been registered successfully..")
+
+    elif ch == '2':
+        print("Enter your details to login")
+        credential = input("Enter your credential(username or email): ")
+        log_password = input("Enter your password: ")
+
+        output = login(credential, log_password)
         if output[0] == 'Login successful.':
             user = output[1]
-            print(user)
             dashboard(user)
         else:
-            print("Login failed!!", output)
+            print("Login failed..", output[0])
+        
+    else:
+        print("Wrong Choice...")
