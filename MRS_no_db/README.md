@@ -23,5 +23,3 @@ in-memory data structures and machine learning concepts.
 
 -   **Python** (Core language)
 -   **Pandas** (Data handling)
--   **Scikit-learn** (Recommendation logic)
--   **Matplotlib** (Optional: visualization)
