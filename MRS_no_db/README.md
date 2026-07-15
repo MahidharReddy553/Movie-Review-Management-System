@@ -22,4 +22,4 @@ in-memory data structures and machine learning concepts.
 ## 🛠️ Tech Stack
 
 -   **Python** (Core language)
--   **Pandas** (Data handling)
+-   **CSV** (Data Storage)
