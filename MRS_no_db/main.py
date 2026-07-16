@@ -28,7 +28,12 @@ def dashboard(user):
             view_all_movies()
 
         elif c == '3':
-            pass
+            movie_id = input("Enter the movie id: ")
+            movie_rating = input("Enter the movie rating: ")
+            movie_comment = input("Enter the movie comment: ")
+            user_id = user.get('id')
+            
+            add_review(user_id, movie_id, movie_rating, movie_comment)
 
         elif c == '4':
             pass
