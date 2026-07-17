@@ -1,23 +1,33 @@
 from utils import *
+from movies import *
 
-path = r'D:\MRS_Project\MRS_no_db\data\reviews.csv'
-
-def get_user_reviews(user_id):
-    data = read_csv(path)
-    reviews = [r for r in data if r.get('user_id') == user_id]
-    return reviews
-
+reviews_file = r'D:\MRS_Project\MRS_no_db\data\reviews.csv'
+movies_file = r'D:\MRS_Project\MRS_no_db\data\movies.csv'
 
 def add_review(u_id, m_id, m_rating, m_comment):
-    reviews = read_csv(path)
+    reviews = read_csv(reviews_file)
+    movie = get_movie_by_id(movies_file, m_id)
+    if movie == "Movie not found":
+        return "Movie is not found. So, unable to write a review"
 
     new_review = {
-        'id': generate_id(path),
+        'id': generate_id(reviews_file),
         'user_id': u_id,
         'movie_id': m_id,
         'rating': m_rating,
         'comment': m_comment
     }
+    write_row(reviews_file, new_review)
 
-    write_row(path, new_review)
-# get_user_reviews('1')
+def view_user_review(u_id):
+    reviews = read_csv(reviews_file)
+    found = False
+    for r in reviews:
+        if r['user_id'] == u_id:
+            print("User ID:", r['user_id'], "||", "Movie ID:", r['movie_id'], "||", "Movie Rating:", r['rating'], "||", "Movie Comment: ", r['comment'])
+            found = True
+
+    if not found:
+        print(f"No reviews found with user ID {u_id}")
+
+# view_user_review('3')
