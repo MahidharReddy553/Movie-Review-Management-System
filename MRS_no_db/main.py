@@ -42,7 +42,12 @@ def dashboard(user):
             view_user_review(u_id)
 
         elif c == '5':
-            pass
+            review_id = input("Enter the review id you want to edit: ")
+            new_rating = input("Enter the edited rating: ")
+            new_comment = input("Enter the new comment: ")
+
+            print(f"Review ID entered by the user: {review_id}")
+            edit_review(review_id, new_rating, new_comment)
 
         elif c == '6':
             pass
