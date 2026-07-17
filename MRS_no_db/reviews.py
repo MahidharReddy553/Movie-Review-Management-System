@@ -31,3 +31,14 @@ def view_user_review(u_id):
         print(f"No reviews found with user ID {u_id}")
 
 # view_user_review('3')
+
+def edit_review(review_id, new_rating, new_comment):
+    reviews = read_csv(reviews_file)
+    for r in reviews:
+        if r['id'] == review_id:
+            r['rating'] = new_rating
+            r['comment'] = new_comment
+            break
+    write_rows(reviews_file, reviews)
+
+# edit_review('2', '4', 'Excellent experience')
