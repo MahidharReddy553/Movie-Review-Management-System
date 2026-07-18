@@ -9,6 +9,4 @@ class MovieReviewSystem:
         add_movie(movie_title, movie_genre, movie_release_year)
     
     def view_my_reviews(self):
-        get_user_reviews(self.user.get('id'))
-
-
+        view_user_review(self.user.get('id'))
