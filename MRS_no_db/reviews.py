@@ -41,4 +41,10 @@ def edit_review(review_id, new_rating, new_comment):
             break
     write_rows(reviews_file, reviews)
 
+def delete_review(review_id):
+    reviews = read_csv(reviews_file)
+    new_reviews = [r for r in reviews if r['id'] != review_id]
+    write_rows(reviews_file, new_reviews)
+
 # edit_review('2', '4', 'Excellent experience')
+# delete_review('2')
